@@ -12,6 +12,9 @@ const app = createApp({
     methods: {
 
     },
+    computed: {
+
+    }
 })
 
 
