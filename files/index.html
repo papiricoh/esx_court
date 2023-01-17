@@ -16,37 +16,78 @@
       <!-- TABS -->
       <div class="tabs is-centered">
         <ul>
-          <li class="is-active">
+          <li class="is-active" v-if="page == 'home'">
             <a>
               <span class="icon is-small"><i class="fas fa-book" aria-hidden="true"></i></span>
-              <span>Cases</span>
+              <span>Open Cases</span>
+            </a>
+          </li>
+          <li v-else @click="page = 'home'">
+            <a>
+              <span class="icon is-small"><i class="fas fa-book" aria-hidden="true"></i></span>
+              <span>Open Cases</span>
+            </a>
+          </li>
+          <li class="is-active" v-if="page == 'bails'">
+            <a>
+              <span class="icon is-small"><i class="fas fa-money-check-dollar" aria-hidden="true"></i></span>
+              <span>Bails</span>
+            </a>
+          </li>
+          <li v-else @click="page = 'bails'">
+            <a>
+              <span class="icon is-small"><i class="fas fa-money-check-dollar" aria-hidden="true"></i></span>
+              <span>Bails</span>
             </a>
           </li>
         </ul>
       </div>
-      <div class="page" v-if="page = 'home'">
+      <div class="page" v-if="page == 'home'">
         <!-- MENU -->
         <div class="hero main_grid">
           <div class="box main_menu">
             <aside class="menu">
-              <p class="menu-label">General</p>
+              <p class="menu-label">General Menu</p>
               <ul class="menu-list">
-                <li><a>Dashboard</a></li>
-                <li><a>Customers</a></li>
+                <li>Penal Cases
+                  <ul v-for="(penal_case, i) in penal_cases" class="menu-list">
+                    <li v-if="current_case == 'penal' + i"><a class="is-active ">{{penal_case.shortTitle}}</a>
+                    </li>
+                    <li v-else @click="current_case = 'penal' + i, changeCasePage('penal', i)">
+                      <a>{{penal_case.shortTitle}}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>Civil Cases
+                  <ul v-for="(civil_case, i) in civil_cases" class="menu-list">
+                    <li v-if="current_case == 'civil' + i"><a class="is-active ">{{civil_case.shortTitle}}</a>
+                    </li>
+                    <li v-else @click="current_case = 'civil' + i, changeCasePage('civil', i)">
+                      <a>{{civil_case.shortTitle}}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li>Government Cases
+                  <ul v-for="(government_case, i) in government_cases" class="menu-list">
+                    <li v-if="current_case == 'government' + i"><a class="is-active ">{{government_case.shortTitle}}</a>
+                    </li>
+                    <li v-else @click="current_case = 'government' + i, changeCasePage('government', i)">
+                      <a>{{government_case.shortTitle}}</a>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </aside>
           </div>
           <div class="box main_page">
-            <div class="title">Page Name</div>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Doloribus, quisquam laudantium? Modi consequatur sequi nostrum
-              laborum eum delectus similique officiis quo, quidem reiciendis
-              cupiditate corporis molestias commodi iusto recusandae voluptate.
-            </p>
+            <div class="title">{{case_title}}</div>
+            <hr>
+            <p>{{case_body}}</p>
           </div>
         </div>
+      </div>
+      <div class="page" v-if="page == 'bails'">
+        <p>Currently Unavariable</p>
       </div>
     </div>
   </div>

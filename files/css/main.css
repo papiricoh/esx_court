@@ -1,21 +1,24 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 
+
 .main_grid {
     display: grid;
+    margin: 20px;
 }
 
 .main_menu {
-    padding: 2rem;
+    padding: 1rem;
     margin: 10px;
     grid-column-start: 1;
     grid-column-end: 3;
+    max-width: 18rem;
 }
 
 .main_page {
-    padding: 2rem;
+    padding: 3rem;
     margin: 10px;
     grid-column-start: 3;
-    grid-column-end: 6;
+    grid-column-end: 10;
 }
 
 .main_heading {
