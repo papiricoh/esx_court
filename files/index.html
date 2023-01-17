@@ -28,16 +28,28 @@
               <span>Open Cases</span>
             </a>
           </li>
-          <li class="is-active" v-if="page == 'bails'">
+          <li class="is-active" v-if="page == 'bills'">
             <a>
               <span class="icon is-small"><i class="fas fa-money-check-dollar" aria-hidden="true"></i></span>
-              <span>Bails</span>
+              <span>Bills</span>
             </a>
           </li>
-          <li v-else @click="page = 'bails'">
+          <li v-else @click="page = 'bills'">
             <a>
               <span class="icon is-small"><i class="fas fa-money-check-dollar" aria-hidden="true"></i></span>
-              <span>Bails</span>
+              <span>Bills</span>
+            </a>
+          </li>
+          <li class="is-active" v-if="page == 'editor'">
+            <a>
+              <span class="icon is-small"><i class="fas fa-pen-to-square" aria-hidden="true"></i></span>
+              <span>Lawsuit Editor</span>
+            </a>
+          </li>
+          <li v-else @click="page = 'editor'">
+            <a>
+              <span class="icon is-small"><i class="fas fa-pen-to-square" aria-hidden="true"></i></span>
+              <span>Lawsuit Editor</span>
             </a>
           </li>
         </ul>
@@ -80,14 +92,56 @@
             </aside>
           </div>
           <div class="box main_page">
-            <div class="title">{{case_title}}</div>
-            <hr>
-            <p>{{case_body}}</p>
+            <div v-if="current_case == 'none'">
+              <div class="title">{{case_title}}</div>
+              <hr>
+              <p>{{case_body}}</p>
+            </div>
+            <div v-else>
+              <div class="title">{{case_title}}</div>
+              <hr>
+              <p>{{case_body}}</p>
+              <hr>
+              <p>{{sentence}}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="page" v-if="page == 'bails'">
+      <div class="page" v-if="page == 'bills'">
         <p>Currently Unavariable</p>
+      </div>
+      <div class="page" v-if="page == 'editor'">
+        <div class="box main_box">
+          <div class="title">Lawsuit Editor</div>
+          <div class="control" id="control_title">
+            <input class="input vertical-margin" type="text" placeholder="Lawsuit Title">
+            <div class="lawsuit_data">
+              <div class="select full_margin">
+                <select>
+                  <option>Civil Lawsuit</option>
+                  <option>Penal Lawsuit</option>
+                  <option>Administrative Lawsuit</option>
+                </select>
+              </div>
+              <div class="select full_margin">
+                <select>
+                  <option>District Court</option>
+                  <option>State Court</option>
+                  <option>Supreme Court</option>
+                </select>
+              </div>
+              <div class="select full_margin">
+                <select>
+                  <option>Against Person</option>
+                  <option>Against Private Company</option>
+                  <option>Against Government</option>
+                </select>
+              </div>
+              <input class="input full_margin" type="text" placeholder="Accused Full Name">
+              <input class="input full_margin" type="text" placeholder="Accused Id (opcional)">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

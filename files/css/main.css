@@ -24,3 +24,32 @@
 .main_heading {
     background-color: black;
 }
+
+.page {
+    padding: 20px;
+}
+
+.main_box {
+    padding: 4rem;
+}
+
+.vertical-margin {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.full_margin {
+    margin: 6px;
+}
+
+.input {
+    display: flex;
+}
+
+.select {
+    display: inline-block;
+}
+
+.lawsuit_data {
+    display: inline-flex;
+}

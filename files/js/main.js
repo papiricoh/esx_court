@@ -6,12 +6,16 @@ const app = createApp({
         return {
             debug_mode: true,
             page: 'home',
+            user_identifier: 'steam:0000000001',
 
             //Cases page
             case_title: "Cases page",
+            case_demandant_id: { id: "steam:00000001", full_name: "John Doe" },
+            case_accused_id: { id: "steam:00000002", full_name: "Marie Sue" },
             case_body: "Wellcome to the cases page, select the case in the list to the left, with the deseable name",
+            sentence: "Pending sentence...",
 
-            current_case: "",
+            current_case: "none",
             penal_cases: [
                 { index: 0, shortTitle: "Penal", title: "Esto es un caso penal", desc: "lorem" }
             ],
