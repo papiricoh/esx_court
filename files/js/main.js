@@ -32,7 +32,9 @@ const app = createApp({
             felonies: [
                 { name: "Felony1", type: "civil", jail_time: 0 },
                 { name: "Felony3", type: "civil", jail_time: 0 },
-                { name: "Felony1", type: "penal", jail_time: 10 },
+                { name: "Murder", type: "penal", jail_time: 16 },
+                { name: "Kidnaping", type: "penal", jail_time: 10 },
+                { name: "Mass Murdering", type: "penal", jail_time: 100 },
             ],
             selected_felonies: []
 
@@ -69,6 +71,9 @@ const app = createApp({
             }
         },
         recomeded_jailtimeToString(jailTime) {
+            if (jailTime > 100) {
+                return "Wanted JailTime (Recomended: life in prison)";
+            }
             return "Wanted JailTime (Recomended: " + jailTime + " years)";
         },
         modifyRecomendedJailTime(felony) {
