@@ -53,3 +53,11 @@
 .lawsuit_data {
     display: inline-flex;
 }
+
+.accused_list {
+    display: inline-flex;
+}
+
+.accused_list_element {
+    margin-right: 10px;
+}

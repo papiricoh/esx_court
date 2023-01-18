@@ -140,7 +140,22 @@
               <input class="input full_margin" type="text" placeholder="Accused Full Name">
               <input class="input full_margin" type="text" placeholder="Accused National Id (optional)">
             </div>
-            <textarea class="textarea" placeholder="Normal textarea"></textarea>
+            <textarea class="textarea vertical-margin" placeholder="Lawsuit body"></textarea>
+            <hr>
+            <div class="subtitle is-6 vertical-margin">Civil felonies:</div>
+            <div class="accused_list accused_list_element" v-for="(felony, i) in felonies">
+              <label class="checkbox" v-if="felony.type == 'civil'">
+                <input type="checkbox"> {{felony.name}}
+              </label>
+            </div>
+            <hr>
+            <div class="subtitle is-6 vertical-margin">Penal felonies:</div>
+            <div class="accused_list" v-for="(felony, i) in felonies">
+              <label class="checkbox accused_list_element" v-if="felony.type == 'penal'">
+                <input type="checkbox"> {{felony.name}}
+              </label>
+            </div>
+            <input class="input vertical-margin" type="text" :placeholder="recomended_jailtime">
           </div>
         </div>
       </div>

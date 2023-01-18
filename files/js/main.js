@@ -15,6 +15,11 @@ const app = createApp({
             case_body: "Wellcome to the cases page, select the case in the list to the left, with the deseable name",
             sentence: "Pending sentence...",
 
+
+            //LawsuitEditor
+            recomended_jailtime_int: 0,
+            recomended_jailtime: "Wanted JailTime (Recomended: 0 years)",
+
             current_case: "none",
             penal_cases: [
                 { index: 0, shortTitle: "Penal", title: "Esto es un caso penal", desc: "lorem" }
@@ -24,6 +29,11 @@ const app = createApp({
             ],
             government_cases: [
                 { index: 0, shortTitle: "Government", title: "Esto es un caso guvernamental", desc: "lorem" }
+            ],
+            felonies: [
+                { name: "Felony1", type: "civil", jail_time: "10" },
+                { name: "Felony3", type: "civil", jail_time: "10" },
+                { name: "Felony1", type: "penal", jail_time: "10" },
             ]
 
         }
