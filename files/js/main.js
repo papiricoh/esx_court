@@ -18,7 +18,6 @@ const app = createApp({
 
             //LawsuitEditor
             recomended_jailtime_int: 0,
-            recomended_jailtime: "Wanted JailTime (Recomended: 0 years)",
 
             current_case: "none",
             penal_cases: [
@@ -31,10 +30,11 @@ const app = createApp({
                 { index: 0, shortTitle: "Government", title: "Esto es un caso guvernamental", desc: "lorem" }
             ],
             felonies: [
-                { name: "Felony1", type: "civil", jail_time: "10" },
-                { name: "Felony3", type: "civil", jail_time: "10" },
-                { name: "Felony1", type: "penal", jail_time: "10" },
-            ]
+                { name: "Felony1", type: "civil", jail_time: 0 },
+                { name: "Felony3", type: "civil", jail_time: 0 },
+                { name: "Felony1", type: "penal", jail_time: 10 },
+            ],
+            selected_felonies: []
 
         }
     },
@@ -67,6 +67,35 @@ const app = createApp({
                     }
                 }
             }
+        },
+        recomeded_jailtimeToString(jailTime) {
+            return "Wanted JailTime (Recomended: " + jailTime + " years)";
+        },
+        modifyRecomendedJailTime(felony) {
+            let felonySelectedIndex = this.isFelonySelected(felony)
+            if (felonySelectedIndex != -1) {
+                this.recomended_jailtime_int += -felony.jail_time
+                this.selected_felonies[felonySelectedIndex] = null
+            } else {
+                this.selected_felonies[this.getNextEmptyInList(this.selected_felonies)] = felony
+                this.recomended_jailtime_int += felony.jail_time
+            }
+        },
+        isFelonySelected(felony) {
+            for (let index = 0; index < this.selected_felonies.length; index++) {
+                if (this.selected_felonies[index] == felony) {
+                    return index;
+                }
+            }
+            return -1;
+        },
+        getNextEmptyInList(list) {
+            let nextEmpty = 0
+            for (let index = 0; index < list.length; index++) {
+                nextEmpty++
+
+            }
+            return nextEmpty
         }
     },
     computed: {

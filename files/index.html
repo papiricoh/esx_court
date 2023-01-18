@@ -152,10 +152,13 @@
             <div class="subtitle is-6 vertical-margin">Penal felonies:</div>
             <div class="accused_list" v-for="(felony, i) in felonies">
               <label class="checkbox accused_list_element" v-if="felony.type == 'penal'">
-                <input type="checkbox"> {{felony.name}}
+                <input @click="modifyRecomendedJailTime(felony)" type="checkbox"> {{felony.name}}
               </label>
             </div>
-            <input class="input vertical-margin" type="text" :placeholder="recomended_jailtime">
+            <input class="input vertical-margin" type="text"
+              :placeholder="recomeded_jailtimeToString(recomended_jailtime_int)">
+
+            <div @click="recomended_jailtime_int++" class="button is-info">TEST JAILTIME VAR</div>
           </div>
         </div>
       </div>
