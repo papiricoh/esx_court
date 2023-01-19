@@ -155,8 +155,13 @@
                 <input @click="modifyRecomendedJailTime(felony)" type="checkbox"> {{felony.name}}
               </label>
             </div>
-            <input class="input vertical-margin" type="text"
-              :placeholder="recomeded_jailtimeToString(recomended_jailtime_int)">
+            <br>
+            <div class="half_grid">
+              <input class="input vertical-margin" type="text"
+                :placeholder="recomeded_jailtimeToString(recomended_jailtime_int)">
+              <input class="input vertical-margin" type="text" placeholder="Wanted economic compensation in $">
+            </div>
+            <br>
 
             <div @click="recomended_jailtime_int++" class="button is-info">TEST JAILTIME VAR</div>
           </div>
