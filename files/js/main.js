@@ -1,44 +1,42 @@
 // import { createApp } from 'vue'
-const { createApp } = Vue;
+// import VueApexCharts from 'vue-apexcharts'
+var app = new Vue({
+    el: '#app',
+    data: {
+        debug_mode: true,
+        page: 'home',
+        user_identifier: 'steam:0000000001',
 
-const app = createApp({
-    data() {
-        return {
-            debug_mode: true,
-            page: 'home',
-            user_identifier: 'steam:0000000001',
-
-            //Cases page
-            case_title: "Cases page",
-            case_demandant_id: { id: "steam:00000001", full_name: "John Doe" },
-            case_accused_id: { id: "steam:00000002", full_name: "Marie Sue" },
-            case_body: "Wellcome to the cases page, select the case in the list to the left, with the deseable name",
-            sentence: "Pending sentence...",
+        //Cases page
+        case_title: "Cases page",
+        case_demandant_id: { id: "steam:00000001", full_name: "John Doe" },
+        case_accused_id: { id: "steam:00000002", full_name: "Marie Sue" },
+        case_body: "Wellcome to the cases page, select the case in the list to the left, with the deseable name",
+        sentence: "Pending sentence...",
 
 
-            //LawsuitEditor
-            recomended_jailtime_int: 0,
+        //LawsuitEditor
+        recomended_jailtime_int: 0,
 
-            current_case: "none",
-            penal_cases: [
-                { index: 0, shortTitle: "Penal", title: "Esto es un caso penal", desc: "lorem" }
-            ],
-            civil_cases: [
-                { index: 0, shortTitle: "Civil", title: "Esto es un caso civil", desc: "lorem" }
-            ],
-            government_cases: [
-                { index: 0, shortTitle: "Government", title: "Esto es un caso guvernamental", desc: "lorem" }
-            ],
-            felonies: [
-                { name: "Felony1", type: "civil", jail_time: 0 },
-                { name: "Felony3", type: "civil", jail_time: 0 },
-                { name: "Murder", type: "penal", jail_time: 16 },
-                { name: "Kidnaping", type: "penal", jail_time: 10 },
-                { name: "Mass Murdering", type: "penal", jail_time: 100 },
-            ],
-            selected_felonies: []
+        current_case: "none",
+        penal_cases: [
+            { index: 0, shortTitle: "Penal", title: "Esto es un caso penal", desc: "lorem" }
+        ],
+        civil_cases: [
+            { index: 0, shortTitle: "Civil", title: "Esto es un caso civil", desc: "lorem" }
+        ],
+        government_cases: [
+            { index: 0, shortTitle: "Government", title: "Esto es un caso guvernamental", desc: "lorem" }
+        ],
+        felonies: [
+            { name: "Felony1", type: "civil", jail_time: 0 },
+            { name: "Felony3", type: "civil", jail_time: 0 },
+            { name: "Murder", type: "penal", jail_time: 16 },
+            { name: "Kidnaping", type: "penal", jail_time: 10 },
+            { name: "Mass Murdering", type: "penal", jail_time: 100 },
+        ],
+        selected_felonies: []
 
-        }
     },
     methods: {
         changeCasePage(type, i) {
