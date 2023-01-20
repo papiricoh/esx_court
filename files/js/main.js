@@ -1,5 +1,5 @@
 // import { createApp } from 'vue'
-// import VueApexCharts from 'vue-apexcharts'
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -103,5 +103,8 @@ var app = new Vue({
     },
     computed: {
 
-    }
+    },
+    components: {
+
+    },
 })
