@@ -105,6 +105,3 @@ var app = new Vue({
 
     }
 })
-
-
-app.mount('#app')
