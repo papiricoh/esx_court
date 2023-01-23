@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="./css/main.css" />
   <title>Court App</title>
 </head>
@@ -13,8 +14,9 @@
   <div id="app">
     <div>
       <div class="hero main_heading">
-        <div class="title main_title">LS Justice Intranet</div>
-        <div class="main_title_username">Wellcome: <b>{{ user_full_name }}</b></div>
+        <div class="title main_title animate__animated animate__backInDown">LS Justice Intranet</div>
+        <div class="main_title_username animate__animated animate__backInDown">Wellcome: <b>{{ user_full_name }}</b>
+        </div>
       </div>
       <!-- TABS -->
       <div class="tabs is-centered">
@@ -57,7 +59,7 @@
           </li>
         </ul>
       </div>
-      <div class="page" v-if="page == 'home'">
+      <div class="page animate__animated animate__backInUp" v-if="page == 'home'">
         <!-- MENU -->
         <div class="hero main_grid">
           <div class="box main_menu">
@@ -69,7 +71,7 @@
                     <li v-if="current_case == 'penal' + i"><a class="is-active ">{{penal_case.shortTitle}}</a>
                     </li>
                     <li v-else @click="current_case = 'penal' + i, changeCasePage('penal', i)">
-                      <a>{{penal_case.shortTitle}}</a>
+                      <a class="animated_box">{{penal_case.shortTitle}}</a>
                     </li>
                   </ul>
                 </li>
@@ -78,7 +80,7 @@
                     <li v-if="current_case == 'civil' + i"><a class="is-active ">{{civil_case.shortTitle}}</a>
                     </li>
                     <li v-else @click="current_case = 'civil' + i, changeCasePage('civil', i)">
-                      <a>{{civil_case.shortTitle}}</a>
+                      <a class="animated_box">{{civil_case.shortTitle}}</a>
                     </li>
                   </ul>
                 </li>
@@ -87,7 +89,7 @@
                     <li v-if="current_case == 'government' + i"><a class="is-active ">{{government_case.shortTitle}}</a>
                     </li>
                     <li v-else @click="current_case = 'government' + i, changeCasePage('government', i)">
-                      <a>{{government_case.shortTitle}}</a>
+                      <a class="animated_box">{{government_case.shortTitle}}</a>
                     </li>
                   </ul>
                 </li>
