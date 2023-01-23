@@ -63,3 +63,35 @@
 }
 
 .half_grid {}
+
+.main_heading {
+    height: 15rem;
+    background-image: url(../img/court_building.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    text-align: center;
+    filter: sepia(60%);
+}
+
+.main_title {
+    text-shadow: 0 0 12px rgb(255, 255, 255);
+    font-size: 500%;
+    margin: auto;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.main_title_username {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 8px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    text-shadow: 0 0 12px rgb(255, 255, 255);
+    font-size: 150%;
+    margin: auto;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+}

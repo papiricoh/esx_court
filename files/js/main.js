@@ -6,6 +6,7 @@ var app = new Vue({
         debug_mode: true,
         page: 'home',
         user_identifier: 'steam:0000000001',
+        user_full_name: 'Lucca Noriega-Litcher IV',
 
         //Cases page
         case_title: "Cases page",
