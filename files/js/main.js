@@ -15,6 +15,18 @@ var app = new Vue({
         case_body: "Wellcome to the cases page, select the case in the list to the left, with the deseable name",
         sentence: "Pending sentence...",
 
+        //Lawsuit Form
+        form_title: "",
+        form_body: "",
+        form_lawsuit_type: "",
+        form_court_type: "",
+        form_against: "",
+        form_accused_name: "",
+        form_accused_nid: "",
+        form_felonies: "",
+        form_prison_years: "",
+        form_money: "",
+
 
         //LawsuitEditor
         recomended_jailtime_int: 0,
@@ -24,14 +36,14 @@ var app = new Vue({
             { index: 0, shortTitle: "Penal", title: "Esto es un caso penal", desc: "lorem" }
         ],
         civil_cases: [
-            { index: 0, shortTitle: "Civil", title: "Esto es un caso civil", desc: "lorem" }
+            { index: 0, shortTitle: "Civil", title: "Esto es un caso civil", desc: "lorem \nhol" }
         ],
         government_cases: [
             { index: 0, shortTitle: "Government", title: "Esto es un caso guvernamental", desc: "lorem" }
         ],
         felonies: [
-            { name: "Felony1", type: "civil", jail_time: 0 },
-            { name: "Felony3", type: "civil", jail_time: 0 },
+            { name: "Minor Thief", type: "civil", jail_time: 0 },
+            { name: "Assault", type: "penal", jail_time: 5 },
             { name: "Murder", type: "penal", jail_time: 16 },
             { name: "Kidnaping", type: "penal", jail_time: 10 },
             { name: "Mass Murdering", type: "penal", jail_time: 100 },

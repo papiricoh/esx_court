@@ -15,7 +15,8 @@
     <div>
       <div class="hero main_heading">
         <div class="title main_title animate__animated animate__backInDown">LS Justice Intranet</div>
-        <div class="main_title_username animate__animated animate__backInDown">Wellcome: <b>{{ user_full_name }}</b>
+        <div class="main_title_username animate__animated animate__backInDown">
+          Wellcome: <b>{{ user_full_name }}</b>
         </div>
       </div>
       <!-- TABS -->
@@ -105,9 +106,9 @@
             <div v-else>
               <div class="title">{{case_title}}</div>
               <hr>
-              <p>{{case_body}}</p>
+              <p style="white-space: pre-line;">{{case_body}}</p>
               <hr>
-              <p>{{sentence}}</p>
+              <p style="white-space: pre-line;">{{sentence}}</p>
             </div>
           </div>
         </div>
@@ -119,52 +120,44 @@
         <div class="box main_box">
           <div class="title">Lawsuit Editor</div>
           <div class="control" id="control_title">
-            <input class="input vertical-margin" type="text" placeholder="Lawsuit Title">
+            <input class="input vertical-margin" type="text" placeholder="Lawsuit Title" v-model="form_title">
             <div class="lawsuit_data">
               <div class="select full_margin">
-                <select>
+                <select v-model="form_lawsuit_type">
                   <option>Civil Lawsuit</option>
                   <option>Penal Lawsuit</option>
                   <option>Administrative Lawsuit</option>
                 </select>
               </div>
               <div class="select full_margin">
-                <select>
+                <select v-model="form_court_type">
                   <option>District Court</option>
                   <option>State Court</option>
                   <option>Supreme Court</option>
                 </select>
               </div>
               <div class="select full_margin">
-                <select>
+                <select v-model="form_against">
                   <option>Against Person</option>
                   <option>Against Private Company</option>
                   <option>Against Government</option>
                 </select>
               </div>
-              <input class="input full_margin" type="text" placeholder="Accused Full Name">
-              <input class="input full_margin" type="text" placeholder="Accused National Id (optional)">
+              <input class="input full_margin" type="text" placeholder="Accused Full Name" v-model="form_accused_name">
+              <input class="input full_margin" type="text" placeholder="Accused National Id (optional)"
+                v-model="form_accused_nid">
             </div>
-            <textarea class="textarea vertical-margin" placeholder="Lawsuit body"></textarea>
+            <textarea class="textarea vertical-margin" placeholder="Lawsuit body" v-model="form_body"></textarea>
             <hr>
-            <div class="subtitle is-6 vertical-margin">Civil felonies:</div>
-            <div class="accused_list accused_list_element" v-for="(felony, i) in felonies">
-              <label class="checkbox" v-if="felony.type == 'civil'">
-                <input type="checkbox"> {{felony.name}}
-              </label>
-            </div>
-            <hr>
-            <div class="subtitle is-6 vertical-margin">Penal felonies:</div>
-            <div class="accused_list" v-for="(felony, i) in felonies">
-              <label class="checkbox accused_list_element" v-if="felony.type == 'penal'">
-                <input @click="modifyRecomendedJailTime(felony)" type="checkbox"> {{felony.name}}
-              </label>
-            </div>
+            <div class="subtitle is-6 vertical-margin">List of felonies:</div>
+            <input class="input vertical-margin" type="text"
+              placeholder="Thief, Murder, Assault, Organiced Crime, Scam (Example)" v-model="form_felonies">
             <br>
             <div class="half_grid">
-              <input class="input vertical-margin" type="text"
-                :placeholder="recomeded_jailtimeToString(recomended_jailtime_int)">
-              <input class="input vertical-margin" type="text" placeholder="Wanted economic compensation in $">
+              <input class="input vertical-margin" type="text" placeholder="Recomended Jail Time"
+                v-model="form_prison_years">
+              <input class="input vertical-margin" type="text" placeholder="Wanted economic compensation in $"
+                v-model="form_money">
             </div>
             <br>
 
